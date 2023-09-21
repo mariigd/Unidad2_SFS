@@ -4,17 +4,10 @@ using System.IO.Ports;
 using TMPro;
 
 
-enum TaskState
-{
-    INIT,
-    WAIT_COMMANDS
-}
 
 public class Config : MonoBehaviour
 {
-    private static TaskState taskState = TaskState.INIT;
-    private SerialPort _serialPort;
-    private byte[] buffer;
+
 
     //Botones
     public Button TempMas;
@@ -41,34 +34,26 @@ public class Config : MonoBehaviour
     private bool PresionadoComenzar = false;
 
     //Variables
-    int temperature = 0;
+    public int temperature = 20;
     
     int altura = 0;
     int presion = 0;
 
-    
+    //Visualización de las variables
+    public Image TempIMG;
+    public Sprite Frio;
+    public Sprite Caliente;
+
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _serialPort = new SerialPort();
-        _serialPort.PortName = "COM3";
-        _serialPort.BaudRate = 9600;
-        _serialPort.DtrEnable = true;
-        _serialPort.NewLine = "\n";
-        _serialPort.Open();
-        Debug.Log("Open Serial Port");
-        buffer = new byte[128];
-
-        TempMas = GetComponent<Button>();
-        TempMenos = GetComponent<Button>();
-        ALTmas = GetComponent<Button>();
-        ALTmenos = GetComponent<Button>();
-        PresMas = GetComponent<Button>();
-        PresMenos = GetComponent<Button>();
-        Comenzar = GetComponent<Button>();
+        
+        //Manejo de botones
+        
 
         TempMas.onClick.AddListener(ModificarTemp);
         TempMenos.onClick.AddListener(ModificarTemp);
@@ -76,27 +61,40 @@ public class Config : MonoBehaviour
         ALTmenos.onClick.AddListener(ModificarAlt);
         PresMas.onClick.AddListener(ModificarPresion);
         PresMenos.onClick.AddListener(ModificarPresion);
+
         
 
     }
 
-    private void ModificarTemp()
+    public void ModificarTemp()
     {
+
         PresionadoTempMas = !PresionadoTempMas;
         if(PresionadoTempMas == true)
         {
-            temperature++;
+            temperature += 5;
         }
+
         PresionadoTempMenos = !PresionadoTempMenos;
         if(PresionadoTempMenos == true)
         {
-            temperature--;
+            temperature -= 5;
             if (temperature < 0)
             {
                 temperature = 0;
             }
         }
 
+        if (temperature == 10)
+        {
+            TempIMG.sprite = Frio;
+        }
+        else if (temperature == 30)
+        {
+            TempIMG.sprite = Caliente;
+        }
+        Debug.Log("Botón TempMas o TempMenos clicado");
+        Debug.Log("Valor de temperature: " + temperature);
         int acertijos = temperature;
     }
 
@@ -135,6 +133,9 @@ public class Config : MonoBehaviour
             }
         }
     }
+
+   
+
 
     // Update is called once per frame
     void Update()
