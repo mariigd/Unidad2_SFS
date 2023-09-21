@@ -71,9 +71,10 @@ public class Config : MonoBehaviour
             }
         }
 
-        Debug.Log("Botón TempMas o TempMenos clicado");
+        Debug.Log("Botón TempMas clicado");
         Debug.Log("Valor de temperature: " + temperature);
         int acertijos = temperature;
+        Debug.Log("Valor de acertijos: " + acertijos);
     }
     public void MenosTemp()
     {
@@ -86,7 +87,7 @@ public class Config : MonoBehaviour
                 temperature = 10;
             }
         }
-        Debug.Log("Botón TempMas o TempMenos clicado");
+        Debug.Log("Botón TempMenos clicado");
         Debug.Log("Valor de temperature: " + temperature);
     }
 
@@ -97,7 +98,9 @@ public class Config : MonoBehaviour
         {
             altura++;
         }
-        
+
+        Debug.Log("Botón MasALT clicado");
+        Debug.Log("Valor de altura: " + altura);
     }
 
     public void MenosAlt()
@@ -111,6 +114,8 @@ public class Config : MonoBehaviour
                 altura = 0;
             }
         }
+        Debug.Log("Botón MenosALT clicado");
+        Debug.Log("Valor de altura: " + altura);
     }
 
     public void MasPresion()
@@ -120,7 +125,10 @@ public class Config : MonoBehaviour
         {
             presion++;
         }
-       
+
+        Debug.Log("Botón MasPresion clicado");
+        Debug.Log("Valor de presion: " + presion);
+
     }
 
     public void MenosPresion()
@@ -135,6 +143,8 @@ public class Config : MonoBehaviour
                 presion = 0;
             }
         }
+        Debug.Log("Botón MenosPresion clicado");
+        Debug.Log("Valor de presion: " + presion);
     }
 
 
