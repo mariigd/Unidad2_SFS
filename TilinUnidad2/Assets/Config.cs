@@ -3,10 +3,18 @@ using UnityEngine.UI;
 using System.IO.Ports;
 using TMPro;
 
-
+enum TaskState
+{
+    INIT,
+    WAIT_COMMANDS
+}
 
 public class Config : MonoBehaviour
 {
+
+    private static TaskState taskState = TaskState.INIT;
+    private SerialPort _serialPort;
+    private byte[] buffer;
 
 
     //Botones
