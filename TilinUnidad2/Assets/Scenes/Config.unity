@@ -601,7 +601,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1851026295}
         m_TargetAssemblyTypeName: Config, Assembly-CSharp
-        m_MethodName: ModificarTemp
+        m_MethodName: MasTemp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -610,7 +610,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &590586468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1851026295}
         m_TargetAssemblyTypeName: Config, Assembly-CSharp
-        m_MethodName: ModificarTemp
+        m_MethodName: MenosTemp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -838,7 +838,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &732978742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,7 +1990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 65.91397}
+  m_AnchoredPosition: {x: -345, y: 65.91397}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425371462
@@ -2577,7 +2577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371, y: 65.91397}
+  m_AnchoredPosition: {x: -136, y: 65.91397}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785458963
@@ -2848,10 +2848,13 @@ MonoBehaviour:
   PresMas: {fileID: 1218309115}
   PresMenos: {fileID: 145145929}
   Comenzar: {fileID: 1323992519}
-  temperature: 15
+  temperature: 20
   TempIMG: {fileID: 1078559716}
-  Frio: {fileID: 21300000, guid: 91f6ef5cf48663f4a94c766bd077f2d3, type: 3}
-  Caliente: {fileID: 21300000, guid: 4619a8930fe03354ebd767213317b691, type: 3}
+  Frio: {fileID: 21300000, guid: 9b48ce078b8864c4cb79d1a2d2416a5b, type: 3}
+  Congelado: {fileID: 21300000, guid: 91f6ef5cf48663f4a94c766bd077f2d3, type: 3}
+  Caliente: {fileID: 21300000, guid: 6a73cf97a1bc5bc45a04e63e4b983cb0, type: 3}
+  Asado: {fileID: 21300000, guid: 4619a8930fe03354ebd767213317b691, type: 3}
+  Normal: {fileID: 21300000, guid: 3f44552f7f0a74149bd7e184ed82a917, type: 3}
 --- !u!4 &1851026296
 Transform:
   m_ObjectHideFlags: 0

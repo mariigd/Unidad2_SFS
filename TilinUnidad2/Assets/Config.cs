@@ -42,7 +42,10 @@ public class Config : MonoBehaviour
     //Visualización de las variables
     public Image TempIMG;
     public Sprite Frio;
+    public Sprite Congelado;
     public Sprite Caliente;
+    public Sprite Asado;
+    public Sprite Normal;
 
 
 
@@ -52,60 +55,54 @@ public class Config : MonoBehaviour
     void Start()
     {
         
-        //Manejo de botones
-        
-
-        TempMas.onClick.AddListener(ModificarTemp);
-        TempMenos.onClick.AddListener(ModificarTemp);
-        ALTmas.onClick.AddListener(ModificarAlt);
-        ALTmenos.onClick.AddListener(ModificarAlt);
-        PresMas.onClick.AddListener(ModificarPresion);
-        PresMenos.onClick.AddListener(ModificarPresion);
-
-        
-
     }
 
-    public void ModificarTemp()
+
+    public void MasTemp()
     {
 
         PresionadoTempMas = !PresionadoTempMas;
         if(PresionadoTempMas == true)
         {
-            temperature += 5;
-        }
-
-        PresionadoTempMenos = !PresionadoTempMenos;
-        if(PresionadoTempMenos == true)
-        {
-            temperature -= 5;
-            if (temperature < 0)
+            temperature++;
+            if (temperature > 30)
             {
-                temperature = 0;
+                temperature = 30;
             }
         }
 
-        if (temperature == 10)
-        {
-            TempIMG.sprite = Frio;
-        }
-        else if (temperature == 30)
-        {
-            TempIMG.sprite = Caliente;
-        }
         Debug.Log("Botón TempMas o TempMenos clicado");
         Debug.Log("Valor de temperature: " + temperature);
         int acertijos = temperature;
     }
+    public void MenosTemp()
+    {
+        PresionadoTempMenos = !PresionadoTempMenos;
+        if (PresionadoTempMenos == true)
+        {
+            temperature--;
+            if (temperature < 10)
+            {
+                temperature = 10;
+            }
+        }
+        Debug.Log("Botón TempMas o TempMenos clicado");
+        Debug.Log("Valor de temperature: " + temperature);
+    }
 
-    private void ModificarAlt()
+    public void MasAlt()
     {
         PresionadoALTmas = !PresionadoALTmas;
         if (PresionadoALTmas  == true)
         {
             altura++;
         }
-        PresionadoALTmenos =!PresionadoALTmenos;
+        
+    }
+
+    public void MenosAlt()
+    {
+        PresionadoALTmenos = !PresionadoALTmenos;
         if (PresionadoALTmenos == true)
         {
             altura--;
@@ -116,13 +113,19 @@ public class Config : MonoBehaviour
         }
     }
 
-    private void ModificarPresion()
+    public void MasPresion()
     {
         PresionadoPresMas = !PresionadoPresMas;
         if (PresionadoPresMas == true)
         {
             presion++;
         }
+       
+    }
+
+    public void MenosPresion()
+    {
+        
         PresionadoPresMenos = !PresionadoPresMenos;
         if (PresionadoPresMenos == true)
         {
@@ -134,12 +137,33 @@ public class Config : MonoBehaviour
         }
     }
 
-   
+
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (temperature == 10)
+        {
+            TempIMG.sprite = Congelado;
+        }
+        if (temperature == 15)
+        {
+            TempIMG.sprite = Frio;
+        }
+        else if(temperature == 20)
+        {
+            TempIMG.sprite = Normal;
+        }
+
+        if (temperature == 25)
+        {
+            TempIMG.sprite = Caliente;
+        }
+        if (temperature == 30)
+        {
+            TempIMG.sprite = Asado;
+        }
+
     }
 }
