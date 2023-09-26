@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    private SerialCommunicator serialCommunicator;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadGame()
     {
+        serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
         SceneManager.LoadScene("Juego");
     }
 }

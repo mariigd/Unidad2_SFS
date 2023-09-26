@@ -3,18 +3,12 @@ using UnityEngine.UI;
 using System.IO.Ports;
 using TMPro;
 
-enum TaskState
-{
-    INIT,
-    WAIT_COMMANDS
-}
+
 
 public class Config : MonoBehaviour
 {
 
-    private static TaskState taskState = TaskState.INIT;
-    private SerialPort _serialPort;
-    private byte[] buffer;
+    private SerialCommunicator serialCommunicator;
 
 
     //Botones
@@ -62,6 +56,12 @@ public class Config : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Obtener una referencia al componente SerialCommunication
+        serialCommunicator = GetComponent<SerialCommunicator>();
+
+        // Enviar datos a Arduino cuando sea necesario
+        
+        serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
         
     }
 

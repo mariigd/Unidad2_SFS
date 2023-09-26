@@ -6,6 +6,8 @@ using System.Collections;
 
 public class IniciaJuego : MonoBehaviour
 {
+    private SerialCommunicator serialCommunicator;
+
     public TMP_InputField codigoInputField;
     public TextMeshProUGUI mensajeTexto;
 
@@ -17,7 +19,8 @@ public class IniciaJuego : MonoBehaviour
 
     private void Start()
     {
-      GenerarYMostrarNumeroRandom();
+        serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
+        GenerarYMostrarNumeroRandom();
 
     }
 
