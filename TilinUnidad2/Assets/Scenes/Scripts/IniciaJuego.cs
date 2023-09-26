@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO.Ports;
 
 public class IniciaJuego : MonoBehaviour
 {
@@ -16,10 +17,13 @@ public class IniciaJuego : MonoBehaviour
     public TextMeshProUGUI NumAcertijo; 
     private int numeroActual;
 
+    int currentTemp = Config.temperature;
+
 
     private void Start()
     {
         serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
+
         GenerarYMostrarNumeroRandom();
 
     }
@@ -45,6 +49,7 @@ public class IniciaJuego : MonoBehaviour
 
     private void Update()
     {
+
            
       if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
       {

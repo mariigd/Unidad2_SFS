@@ -36,7 +36,7 @@ public class Config : MonoBehaviour
     private bool PresionadoComenzar = false;
 
     //Variables
-    public int temperature = 20;
+    public static int temperature = 20;
     
     int altura = 0;
     int presion = 0;
