@@ -30,6 +30,8 @@ public class SerialCommunicator : MonoBehaviour
         }
     }
 
+
+
        // Asegurarse de cerrar el puerto serie cuando se detenga la aplicación o el objeto se destruya
     void OnDestroy()
     {

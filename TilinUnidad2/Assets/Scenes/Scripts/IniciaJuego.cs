@@ -17,13 +17,15 @@ public class IniciaJuego : MonoBehaviour
     public TextMeshProUGUI NumAcertijo; 
     private int numeroActual;
 
+    public TextMeshProUGUI ContadorTemp;
+
     int currentTemp = Config.temperature;
 
 
     private void Start()
     {
-        serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
-
+        serialCommunicator.SendDataToArduino("2"); // Envía '2' a Arduino
+        Debug.Log("Current Temp: " + currentTemp);
         GenerarYMostrarNumeroRandom();
 
     }
@@ -49,7 +51,13 @@ public class IniciaJuego : MonoBehaviour
 
     private void Update()
     {
-
+        //Mostrar temperatura
+        ContadorTemp.text = currentTemp.ToString();
+        //if temperatura <=0
+        if(currentTemp <= 0)
+        {
+            CambiarEscenaP();
+        }
            
       if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
       {
@@ -75,10 +83,12 @@ public class IniciaJuego : MonoBehaviour
         SceneManager.LoadScene("Ganar");
     }
 
-    //private IEnumerator CambiarEscenaP()
-    //{
-    //    // Cambia a otra escena (reemplaza "NombreDeLaEscena" con el nombre de la escena a la que deseas cambiar)
-    //    SceneManager.LoadScene("Perder");
-    //}
+    private IEnumerator CambiarEscenaP()
+    {
+        yield return new WaitForSeconds(1f);
+        // Cambia a otra escena (reemplaza "NombreDeLaEscena" con el nombre de la escena a la que deseas cambiar)
+        SceneManager.LoadScene("Perder");
+
+    }
 
 }

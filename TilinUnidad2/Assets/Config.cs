@@ -37,7 +37,7 @@ public class Config : MonoBehaviour
 
     //Variables
     public static int temperature = 20;
-    
+    int acertijos =  temperature;
     int altura = 0;
     int presion = 0;
 
@@ -50,19 +50,14 @@ public class Config : MonoBehaviour
     public Sprite Normal;
 
 
-
+    public TextMeshProUGUI NumAcertijos;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Obtener una referencia al componente SerialCommunication
-        serialCommunicator = GetComponent<SerialCommunicator>();
-
-        // Enviar datos a Arduino cuando sea necesario
-        
-        serialCommunicator.SendDataToArduino("1"); // Envía '1' a Arduino
-        
+        serialCommunicator.SendDataToArduino("1"); // Envía '2' a Arduino
     }
 
 
@@ -81,7 +76,7 @@ public class Config : MonoBehaviour
 
         Debug.Log("Botón TempMas clicado");
         Debug.Log("Valor de temperature: " + temperature);
-        int acertijos = temperature;
+        NumAcertijos.text = temperature.ToString();
         Debug.Log("Valor de acertijos: " + acertijos);
     }
     public void MenosTemp()
@@ -97,6 +92,7 @@ public class Config : MonoBehaviour
         }
         Debug.Log("Botón TempMenos clicado");
         Debug.Log("Valor de temperature: " + temperature);
+        NumAcertijos.text = temperature.ToString();
     }
 
     public void MasAlt()
@@ -183,5 +179,6 @@ public class Config : MonoBehaviour
             TempIMG.sprite = Asado;
         }
 
+        
     }
 }
