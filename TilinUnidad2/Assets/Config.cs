@@ -41,7 +41,7 @@ public class Config : MonoBehaviour
     int altura = 0;
     int presion = 0;
 
-    //Visualización de las variables
+    //Visualización de temperatura
     public Image TempIMG;
     public Sprite Frio;
     public Sprite Congelado;
@@ -49,6 +49,17 @@ public class Config : MonoBehaviour
     public Sprite Asado;
     public Sprite Normal;
 
+    //Visualización de Altura
+    public Image AltIMG;
+    public Sprite Media;
+    public Sprite Alta;
+    public Sprite Baja;
+
+    //Visualización de Presion
+    public Image PresIMG;
+    public Sprite PresB;
+    public Sprite PresM;
+    public Sprite PresA;
 
     public TextMeshProUGUI NumAcertijos;
     
@@ -157,6 +168,7 @@ public class Config : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Temperatura
         if (temperature == 10)
         {
             TempIMG.sprite = Congelado;
@@ -179,6 +191,34 @@ public class Config : MonoBehaviour
             TempIMG.sprite = Asado;
         }
 
-        
+        //Altura
+        if (altura == 5)
+        {
+            AltIMG.sprite = Media;
+        }
+        if (altura == 10)
+        {
+            AltIMG.sprite = Alta;
+        }
+        if (altura == 0)
+        {
+            AltIMG.sprite = Baja;
+        }
+
+        //Presion
+        if (presion == 5)
+        {
+            PresIMG.sprite = PresM;
+        }
+        if (presion == 10)
+        {
+            PresIMG.sprite = PresA;
+        }
+        if (presion == 0)
+        {
+            PresIMG.sprite = PresB;
+        }
+
+
     }
 }
