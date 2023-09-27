@@ -68,9 +68,25 @@ public class Config : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        serialCommunicator.SendDataToArduino("1"); // Envía '2' a Arduino
+        GameObject controladorOBJ = GameObject.Find("SerialCom");
+
+        if(controladorOBJ != null)
+        {
+            serialCommunicator = controladorOBJ.GetComponent<SerialCommunicator>();
+        }
+        else
+        {
+            Debug.LogError("No se encontró");
+        }
+
+        Led();
     }
 
+    private void Led()
+    {
+        serialCommunicator.SendDataToArduino("1"); // Envía '2' a Arduino
+        Debug.Log("Enviar arduino");
+    }
 
     public void MasTemp()
     {

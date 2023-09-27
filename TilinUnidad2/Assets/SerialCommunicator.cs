@@ -11,7 +11,7 @@ public class SerialCommunicator : MonoBehaviour
     void Start()
     {
         _serialPort = new SerialPort();
-        _serialPort.PortName = "COM3"; // Ajusta el nombre del puerto COM según corresponda
+        _serialPort.PortName = "COM5"; // Ajusta el nombre del puerto COM según corresponda
         _serialPort.BaudRate = 9600;
         _serialPort.DtrEnable = true;
         _serialPort.NewLine = "\n";
@@ -32,14 +32,7 @@ public class SerialCommunicator : MonoBehaviour
 
 
 
-       // Asegurarse de cerrar el puerto serie cuando se detenga la aplicación o el objeto se destruya
-    void OnDestroy()
-    {
-        if (_serialPort != null && _serialPort.IsOpen)
-        {
-            _serialPort.Close();
-        }
-    }
+   
 
     // Update is called once per frame
     void Update()

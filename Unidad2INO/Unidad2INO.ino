@@ -29,4 +29,3 @@ currentTemp=0;
 Serial.println(currentTemp);
 delay(1000);
 }
-hola hola 
