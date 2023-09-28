@@ -97,7 +97,7 @@ public class Config : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        _serialPort.Write("1"); // Envía '2' a Arduino
+        _serialPort.Write("0"); // Envía '2' a Arduino
     }
 
 

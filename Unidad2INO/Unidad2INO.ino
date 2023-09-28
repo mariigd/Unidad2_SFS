@@ -25,11 +25,10 @@ void loop() {
   }
 
   currentTemp = currentTemp - 1;
-
+  Serial.print(currentTemp);
+  delay(1000);
   if (currentTemp <= 0) {
     currentTemp = 0;
   }
-  Serial.print(currentTemp);
-  Serial.write('\n');
-  delay(1000);
+  
 }
