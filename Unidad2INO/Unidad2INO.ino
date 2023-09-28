@@ -1,31 +1,35 @@
-int ledPin = 13; // Pin del LED
-int currentTemp;
+int currentTemp = 0; // Inicializar la temperatura en 0
+constexpr uint8_t led = 25;
 
 void setup() {
-  pinMode(ledPin, OUTPUT); // Configurar el pin del LED como salida
+  pinMode(led, OUTPUT); // Configurar el pin del LED como salida
+  digitalWrite(led, LOW);
   Serial.begin(9600); // Iniciar comunicación serial a 9600 baudios
+  
+  
 }
 
 void loop() {
   if (Serial.available() > 0) {
+    char receivedChar = Serial.read(); // Leer el valor del puerto serial y almacenarlo
     
-    if(Serial.read() == '1'){
-      digitalWrite(ledPin, HIGH); // Encender el LED en el pin 13
-      
-    }else if(Serial.read() == '2')
-    {
+    if (receivedChar == '1') {
+      digitalWrite(led, HIGH); // Encender el LED en el pin 13
+    } else if (receivedChar == '2') {
       String dato = Serial.readString();
-      currentTemp = dato.toInt(); 
+      currentTemp = dato.toInt();
+    }else if(receivedChar == '0')
+    {
+      digitalWrite(led, LOW);
     }
-
   }
 
-  currentTemp=currentTemp-1;
+  currentTemp = currentTemp - 1;
 
-if (currentTemp<=0){
-
-currentTemp=0;
-}
-Serial.println(currentTemp);
-delay(1000);
+  if (currentTemp <= 0) {
+    currentTemp = 0;
+  }
+  Serial.print(currentTemp);
+  Serial.write('\n');
+  delay(1000);
 }

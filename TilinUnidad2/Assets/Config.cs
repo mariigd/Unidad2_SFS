@@ -8,7 +8,8 @@ using TMPro;
 public class Config : MonoBehaviour
 {
 
-    private SerialCommunicator serialCommunicator;
+    private SerialPort _serialPort;
+    private byte[] buffer;
 
 
     //Botones
@@ -68,25 +69,37 @@ public class Config : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject controladorOBJ = GameObject.Find("SerialCom");
-
-        if(controladorOBJ != null)
-        {
-            serialCommunicator = controladorOBJ.GetComponent<SerialCommunicator>();
-        }
-        else
-        {
-            Debug.LogError("No se encontró");
-        }
+        _serialPort = new SerialPort();
+        _serialPort.PortName = "COM5";
+        _serialPort.BaudRate = 9600;
+        _serialPort.DtrEnable = true;
+        _serialPort.NewLine = "\n";
+        _serialPort.Open();
+        Debug.Log("Open Serial Port");
+        buffer = new byte[128];
 
         Led();
+        Contador();
+
+
     }
 
     private void Led()
     {
-        serialCommunicator.SendDataToArduino("1"); // Envía '2' a Arduino
+        _serialPort.Write("1"); // Envía '2' a Arduino
         Debug.Log("Enviar arduino");
     }
+    private void Contador()
+    {
+        _serialPort.Write("2");
+        Debug.Log("Enviar temp");
+    }
+
+    private void OnApplicationQuit()
+    {
+        _serialPort.Write("1"); // Envía '2' a Arduino
+    }
+
 
     public void MasTemp()
     {

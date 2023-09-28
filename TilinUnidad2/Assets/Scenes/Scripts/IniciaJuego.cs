@@ -7,7 +7,9 @@ using System.IO.Ports;
 
 public class IniciaJuego : MonoBehaviour
 {
-    private SerialCommunicator serialCommunicator;
+    private SerialPort _serialPort;
+    private byte[] buffer;
+
 
     public TMP_InputField codigoInputField;
     public TextMeshProUGUI mensajeTexto;
@@ -24,10 +26,33 @@ public class IniciaJuego : MonoBehaviour
 
     private void Start()
     {
-        serialCommunicator.SendDataToArduino("2"); // Envía '2' a Arduino
+
+        _serialPort = new SerialPort();
+        _serialPort.PortName = "COM5";
+        _serialPort.BaudRate = 9600;
+        _serialPort.DtrEnable = true;
+        _serialPort.NewLine = "\n";
+        _serialPort.Open();
+        Debug.Log("Open Serial Port");
+        buffer = new byte[128];
+
+        Led();
+
+
         Debug.Log("Current Temp: " + currentTemp);
         GenerarYMostrarNumeroRandom();
 
+    }
+
+    private void Led()
+    {
+        _serialPort.Write("1"); // Envía '1' a Arduino
+        Debug.Log("Enviar arduino");
+    }
+
+    private void OnApplicationQuit()
+    {
+        _serialPort.Write("0"); // Envía '0' a Arduino
     }
 
 
@@ -51,10 +76,23 @@ public class IniciaJuego : MonoBehaviour
 
     private void Update()
     {
-        //Mostrar temperatura
+        // Mostrar temperatura
+        if (_serialPort != null && _serialPort.IsOpen)
+        {
+            // Leer datos del puerto serial y actualizar currentTemp si se recibe un nuevo valor
+            if (_serialPort.BytesToRead > 0)
+            {
+                string receivedData = _serialPort.ReadLine();
+                if (int.TryParse(receivedData, out int newTemp))
+                {
+                    currentTemp = newTemp;
+                }
+            }
+        }
+
         ContadorTemp.text = currentTemp.ToString();
         //if temperatura <=0
-        if(currentTemp <= 0)
+        if (currentTemp <= 0)
         {
             CambiarEscenaP();
         }

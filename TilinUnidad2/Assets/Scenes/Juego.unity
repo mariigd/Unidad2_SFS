@@ -2051,7 +2051,7 @@ MonoBehaviour:
   codigoInputField: {fileID: 1479272206}
   mensajeTexto: {fileID: 1099248532}
   NumAcertijo: {fileID: 1365162013}
-  ContadorTemp: {fileID: 0}
+  ContadorTemp: {fileID: 1474076267}
 --- !u!4 &2127941479
 Transform:
   m_ObjectHideFlags: 0
