@@ -9,7 +9,7 @@ Esta es una simulación de un Scape room, el objetivo es escapar Himalaya, para 
 
 Antes de empezar deberás configurar el numero de acertijos que deseas resolver, dependiendo de esto se definirá la temperatura a la que se empezará el juego, además deberás definir la latitud y presión atmosferica en la que empezaras. 
 
-![Image](https://github.com/jfUPB/sc2023-20-u1-eval-LCami-Villanueva/blob/main/.github/Cami.jpg)   
+![Image](https://github.com/LCami-Villanueva/Imagenes/blob/main/1.jpg)
 
   ## Manual Desarrollador
   
