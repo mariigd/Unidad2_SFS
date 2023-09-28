@@ -30,7 +30,7 @@ En este espacio encontrarás:
 
 * ### Config
 
-"""
+``` C#
 
     Botones
     public Button TempMas;
@@ -83,6 +83,8 @@ En este espacio encontrarás:
     public Sprite PresA;
 
     public TextMeshProUGUI NumAcertijos;
+
+```
 
 Esta parte del código se encarga de declarar y definir las variables y elementos que se utilizarán 
 para interactuar con la interfaz de usuario y para controlar el comportamiento del programa.
