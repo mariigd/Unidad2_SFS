@@ -12,19 +12,19 @@ Antes de empezar deberás configurar el numero de acertijos que deseas resolver,
 ![Image](https://github.com/LCami-Villanueva/Imagenes/blob/main/1.jpg)
 
 La interfaz contará con los siguientes elementos de interacción:
-* Indicador de Temperatura: Aquí podras observar que tanj alta o baja será la temperatura con la que empezarás el juego (Ten en cuenta, que al iniciar la experiencia, esta ira disminuyendo con el tiempo, además tanto la latitud como presión atmosferica, tienen un indicador  que te muestra que tan alto o baja estan cada variable)
-* Botón subir Temperatura: Con este botón podrás subir la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de aumentar su respectiva variable)
-* Botón bajar Temperatura: Con este botón podrás bajar la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de disminuir su respectiva variable)
-* Indicador Numero de acertijos: Aquí podrás ver cuantos acertijos tendrás que resolver en la experiencia.
+* **Indicador de Temperatura**: Aquí podras observar que tanj alta o baja será la temperatura con la que empezarás el juego (Ten en cuenta, que al iniciar la experiencia, esta ira disminuyendo con el tiempo, además tanto la latitud como presión atmosferica, tienen un indicador  que te muestra que tan alto o baja estan cada variable)
+* **Botón subir Temperatura**: Con este botón podrás subir la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de aumentar su respectiva variable)
+* **Botón bajar Temperatura**: Con este botón podrás bajar la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de disminuir su respectiva variable)
+* **Indicador Numero de acertijos**: Aquí podrás ver cuantos acertijos tendrás que resolver en la experiencia.
 Al dar en el botón de play, te apareceá la siguiente pantalla:
 
 ![Image](https://github.com/LCami-Villanueva/Imagenes/blob/main/2.jpg)
 
 En este espacio encontrarás:
-* Acertijo aleatorio: Deberás resolverlo correctamente para obtener uno de los 6 caracteres de código, recuerda, que si quieres pasar al siguiente acertijo sin resolver, puedes oprimir la tecla "Enter" (Ten en cuenta, que los acertijos salen al azar, pero que además tendrás acceso solo a una cantidad que predeterminaste en las configuraciones).
-* Agregar Codigo: Una vez tengas los 6 carasteres podrás ingresar tu códogo dandole click a la caja, y escribiendo con tu teclado ( Ten en cuenta que el código solo se acepatará con letras mayusculas"
-* Validar código: Luego de ingresar el código deberás validar que este es correcto, para esto, oprimirás este botón, que te dirá si tu código es el correcto o no, si es el correcto, podrás salir del Himalaya y ganar el juego.
-* Temperatura: Aquí se ve reflejada la temperatura a la que te encuentrás. recuerda que esta va a ir bajando a medida que pasa el tiempo, por lo debes tener cuidado, ya qué si la temperatura llega a 0 antes de que ingreses el código, estarás congeldo y te quedarás en el Himalaya.
+* **Acertijo aleatorio:** Deberás resolverlo correctamente para obtener uno de los 6 caracteres de código, recuerda, que si quieres pasar al siguiente acertijo sin resolver, puedes oprimir la tecla "Enter" (Ten en cuenta, que los acertijos salen al azar, pero que además tendrás acceso solo a una cantidad que predeterminaste en las configuraciones).
+* **Agregar Codigo:** Una vez tengas los 6 carasteres podrás ingresar tu códogo dandole click a la caja, y escribiendo con tu teclado ( Ten en cuenta que el código solo se acepatará con letras mayusculas"
+* **Validar código:** Luego de ingresar el código deberás validar que este es correcto, para esto, oprimirás este botón, que te dirá si tu código es el correcto o no, si es el correcto, podrás salir del Himalaya y ganar el juego.
+* **Temperatura:** Aquí se ve reflejada la temperatura a la que te encuentrás. recuerda que esta va a ir bajando a medida que pasa el tiempo, por lo debes tener cuidado, ya qué si la temperatura llega a 0 antes de que ingreses el código, estarás congeldo y te quedarás en el Himalaya.
 
   ## Manual Desarrollador
 
@@ -32,7 +32,6 @@ En este espacio encontrarás:
 
 ```C#
 
-    Botones
     public Button TempMas;
     public Button TempMenos;
 
@@ -89,23 +88,23 @@ En este espacio encontrarás:
 Esta parte del código se encarga de declarar y definir las variables y elementos que se utilizarán 
 para interactuar con la interfaz de usuario y para controlar el comportamiento del programa.
 
-* Botones:
+* **Botones:**
 
 Primero, estamos diciendo qué botones tenemos en nuestra interfaz. Por ejemplo, mencionamos que tenemos botones para subir y 
 bajar la temperatura (TempMas y TempMenos), para subir y bajar la altura (ALTmas y ALTmenos), para subir 
 y bajar la presión (PresMas y PresMenos), y un botón para empezar (Comenzar).
 
-* Botones Presionados:
+* **Botones Presionados:**
 
 Luego, estamos guardando si estos botones están siendo presionados o no. Si, por ejemplo, aprietas el botón 
 TempMas, la variable PresionadoTempMas pasa a ser true, indicando que el botón se encuentra presionado. Lo mismo para los demás botones.
 
-* Variables de Datos:
+* **Variables de Datos:**
 
 Aquí estamos guardando información importante. La variable temperature guarda la temperatura actual del juego o la aplicación. 
 Acertijos, altura, y presion son otras variables que guardan información relacionada con el juego.
 
-* Visualización de Temperatura:
+* **Visualización de Temperatura:**
 
 Finalmente, mencionamos que tenemos imágenes para mostrar cómo está la temperatura. Por ejemplo, si la temperatura es de 10 grados, mostraremos 
 una imagen de "Congelado". Si es de 20 grados, mostraremos una imagen de "Normal". Estas imágenes se muestran en la pantalla para que el jugador pueda ver la temperatura de manera visual.
@@ -143,10 +142,10 @@ abrimos la comunicación, asignamos un espacio para almacenar datos entrantes y 
 ```
 
 
-* Led(): Enviamos el número "1" al dispositivo externo, posiblemente para darle una instrucción específica, como encender un LED.
+* **Led():** Enviamos el número "1" al dispositivo externo, posiblemente para darle una instrucción específica, como encender un LED.
 Además, registramos un mensaje de depuración para indicar que hemos enviado un comando al dispositivo.
 
-* Contador(): Enviamos el número "2" al dispositivo externo, posiblemente para iniciar un contador u otra tarea específica.
+* **Contador():** Enviamos el número "2" al dispositivo externo, posiblemente para iniciar un contador u otra tarea específica.
 También, registramos un mensaje de depuración para confirmar que hemos enviado un comando al dispositivo.
 
 Estas funciones se utilizan para comunicarnos con el dispositivo externo y darle instrucciones específicas a través del puerto serial.
@@ -246,12 +245,12 @@ Por ejemplo, podría ser útil apagar el dispositivo de manera segura o realizar
 Estas funciones manejan las interacciones del usuario con botones en la interfaz de usuario relacionados con la temperatura, altura y presión. 
 Cada función cambia el estado de ciertas variables y registra mensajes de depuración para mostrar acciones del usuario y actualizar información en la interfaz de usuario:
 
-* MenosTemp(): Disminuye la temperatura si el botón correspondiente se mantiene presionado, con un límite mínimo de 10 grados.
-* MasAlt(): Aumenta la altura si el botón correspondiente se mantiene presionado.
-* MenosAlt(): Disminuye la altura si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
-* MasPresion(): Aumenta la presión si el botón correspondiente se mantiene presionado.
-* MenosPresion(): Disminuye la presión si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
-* Estas funciones permiten al usuario interactuar con la aplicación y modificar los valores de temperatura, altura y presión, mientras se registran mensajes de depuración para rastrear estas acciones.
+* **MenosTemp():** Disminuye la temperatura si el botón correspondiente se mantiene presionado, con un límite mínimo de 10 grados.
+* **MasAlt():** Aumenta la altura si el botón correspondiente se mantiene presionado.
+* **MenosAlt():** Disminuye la altura si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
+* **MasPresion():** Aumenta la presión si el botón correspondiente se mantiene presionado.
+* **MenosPresion():** Disminuye la presión si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
+Estas funciones permiten al usuario interactuar con la aplicación y modificar los valores de temperatura, altura y presión, mientras se registran mensajes de depuración para rastrear estas acciones.
 
 ```C#
 
