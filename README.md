@@ -118,19 +118,40 @@ abrimos la comunicación, asignamos un espacio para almacenar datos entrantes y 
 
 """
 
-private void Led()
+    private void Led()
 
     _serialPort.Write("1"); // Envía '1' al dispositivo externo (posiblemente un Arduino).
     Debug.Log("Enviar arduino"); // Registra un mensaje de depuración para indicar que se ha enviado un comando al dispositivo.    
 
 
-private void Contador()
+    private void Contador()
 
     _serialPort.Write("2"); // Envía '2' al dispositivo externo.
     Debug.Log("Enviar temp"); // Registra un mensaje de depuración para indicar que se ha enviado un comando al dispositivo.
 
 
+* Led(): Enviamos el número "1" al dispositivo externo, posiblemente para darle una instrucción específica, como encender un LED.
+Además, registramos un mensaje de depuración para indicar que hemos enviado un comando al dispositivo.
 
+* Contador(): Enviamos el número "2" al dispositivo externo, posiblemente para iniciar un contador u otra tarea específica.
+También, registramos un mensaje de depuración para confirmar que hemos enviado un comando al dispositivo.
+
+Estas funciones se utilizan para comunicarnos con el dispositivo externo y darle instrucciones específicas a través del puerto serial.
+
+"""
+
+    private void OnApplicationQuit()
+    {
+    _serialPort.Write("0"); // Envía '0' al dispositivo externo (posiblemente un Arduino).
+    }
+
+En esta parte del código, la función OnApplicationQuit() se encarga de realizar una acción 
+importante justo antes de que cierres la aplicación por completo.
+
+Lo que hace es enviar el número "0" al dispositivo externo, que podría ser un Arduino. 
+
+Esta acción es útil porque permite al dispositivo externo llevar a cabo alguna tarea específica antes de desconectarse. 
+Por ejemplo, podría ser útil apagar el dispositivo de manera segura o realizar una acción final importante.
 
 
 
