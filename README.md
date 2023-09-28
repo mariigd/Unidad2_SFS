@@ -18,4 +18,60 @@ La interfaz contará con los siguientes elementos de interacción:
 * Indicador Numero de acertijos: Aquí podrás ver cuantos acertijos tendrás que resolver en la experiencia.
 
   ## Manual Desarrollador
-  
+
+* Config
+
+"""
+
+    Botones
+    public Button TempMas;
+    public Button TempMenos;
+
+    public Button ALTmas;
+    public Button ALTmenos;
+
+    public Button PresMas;
+    public Button PresMenos;
+
+    public Button Comenzar;
+
+    //Boton presionado
+    private bool PresionadoTempMas = false;
+    private bool PresionadoTempMenos = false;
+
+    private bool PresionadoALTmas = false;
+    private bool PresionadoALTmenos = false;
+
+    private bool PresionadoPresMas = false;
+    private bool PresionadoPresMenos = false;
+
+    private bool PresionadoComenzar = false;
+
+    //Variables
+    public static int temperature = 20;
+    int acertijos =  temperature;
+    int altura = 0;
+    int presion = 0;
+
+    //Visualización de temperatura
+    public Image TempIMG;
+    public Sprite Frio;
+    public Sprite Congelado;
+    public Sprite Caliente;
+    public Sprite Asado;
+    public Sprite Normal;
+
+    //Visualización de Altura
+    public Image AltIMG;
+    public Sprite Media;
+    public Sprite Alta;
+    public Sprite Baja;
+
+    //Visualización de Presion
+    public Image PresIMG;
+    public Sprite PresB;
+    public Sprite PresM;
+    public Sprite PresA;
+
+    public TextMeshProUGUI NumAcertijos;"""
+    
