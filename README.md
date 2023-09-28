@@ -16,10 +16,19 @@ La interfaz contará con los siguientes elementos de interacción:
 * Botón subir Temperatura: Con este botón podrás subir la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de aumentar su respectiva variable)
 * Botón bajar Temperatura: Con este botón podrás bajar la temperatura con la que iniciarás la experiencia. (Ten en cuenta que tanto latitud como presión atmosferica, tienen un boton similar que igual cumple la funcion de disminuir su respectiva variable)
 * Indicador Numero de acertijos: Aquí podrás ver cuantos acertijos tendrás que resolver en la experiencia.
+Al dar en el botón de play, te apareceá la siguiente pantalla:
+
+![Image](https://github.com/LCami-Villanueva/Imagenes/blob/main/2.jpg)
+
+En este espacio encontrarás:
+* Acertijo aleatorio: Deberás resolverlo correctamente para obtener uno de los 6 caracteres de código, recuerda, que si quieres pasar al siguiente acertijo sin resolver, puedes oprimir la tecla "Enter" (Ten en cuenta, que los acertijos salen al azar, pero que además tendrás acceso solo a una cantidad que predeterminaste en las configuraciones).
+* Agregar Codigo: Una vez tengas los 6 carasteres podrás ingresar tu códogo dandole click a la caja, y escribiendo con tu teclado ( Ten en cuenta que el código solo se acepatará con letras mayusculas"
+* Validar código: Luego de ingresar el código deberás validar que este es correcto, para esto, oprimirás este botón, que te dirá si tu código es el correcto o no, si es el correcto, podrás salir del Himalaya y ganar el juego.
+* Temperatura: Aquí se ve reflejada la temperatura a la que te encuentrás. recuerda que esta va a ir bajando a medida que pasa el tiempo, por lo debes tener cuidado, ya qué si la temperatura llega a 0 antes de que ingreses el código, estarás congeldo y te quedarás en el Himalaya.
 
   ## Manual Desarrollador
 
-* # Config
+* ### Config
 
 """
 
@@ -296,7 +305,7 @@ En esta sección del código, en la función Update(), se actualiza la aparienci
 se cambia la imagen mostrada (TempIMG) según los valores específicos de temperatura. Lo mismo ocurre para la altura (AltIMG) y la presión (PresIMG),
 donde las imágenes se actualizan en función de los valores actuales. Esto permite a los usuarios ver de manera gráfica cómo cambian estos valores en tiempo real mientras utilizan la aplicación.
     
-* # Load Scene
+* ### Load Scene
 
 """
 
@@ -397,7 +406,7 @@ public void SendDataToArduino(string data): Método público para enviar datos a
 
 void Update(): Método que se llama en cada cuadro del juego, pero en este caso, está vacío y no realiza ninguna acción específica en cada cuadro.
 
-* # Temperatura
+* ### Temperatura
 
 """
 
@@ -441,7 +450,7 @@ public void MenosTemp(): Este método público disminuye la temperatura en 5 uni
 
 En resumen, este código se encarga de controlar y ajustar la temperatura en el juego. El método MasTemp() incrementa la temperatura en 5 unidades y el método MenosTemp() la reduce en la misma cantidad, con un límite mínimo de 0.
 
-* # Raspberry PiPico
+* ### Raspberry PiPico
 
 """
 
