@@ -79,7 +79,7 @@ public class Config : MonoBehaviour
         buffer = new byte[128];
 
         Led();
-        Contador();
+        
 
 
     }
@@ -89,15 +89,11 @@ public class Config : MonoBehaviour
         _serialPort.Write("1"); // Envía '2' a Arduino
         Debug.Log("Enviar arduino");
     }
-    private void Contador()
-    {
-        _serialPort.Write("2");
-        Debug.Log("Enviar temp");
-    }
+    
 
     private void OnApplicationQuit()
     {
-        _serialPort.Write("0"); // Envía '2' a Arduino
+        _serialPort.Write("0"); // Envía '0' a Arduino
     }
 
 

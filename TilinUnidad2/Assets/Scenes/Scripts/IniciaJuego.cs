@@ -37,7 +37,7 @@ public class IniciaJuego : MonoBehaviour
         buffer = new byte[128];
 
         Led();
-
+        Contador();
 
         Debug.Log("Current Temp: " + currentTemp);
         GenerarYMostrarNumeroRandom();
@@ -53,6 +53,12 @@ public class IniciaJuego : MonoBehaviour
     private void OnApplicationQuit()
     {
         _serialPort.Write("0"); // Envía '0' a Arduino
+    }
+
+    private void Contador()
+    {
+        _serialPort.Write("2");
+        Debug.Log("Enviar temp");
     }
 
 
