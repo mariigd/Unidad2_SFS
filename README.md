@@ -332,3 +332,169 @@ En este caso, ambos métodos están vacíos, lo que significa que no realizan ni
 
 En resumen, este script LoadScene proporciona la funcionalidad necesaria para cargar la escena de juego cuando se 
 llama a la función LoadGame(), lo que facilita la navegación entre distintas partes del juego en un proyecto de Unity.
+
+* # SerialCommunicator
+
+"""
+
+    private SerialPort _serialPort;
+    private byte[] buffer;
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _serialPort = new SerialPort();
+        _serialPort.PortName = "COM5";
+        _serialPort.BaudRate = 9600;
+        _serialPort.DtrEnable = true;
+        _serialPort.NewLine = "\n";
+        _serialPort.Open();
+        Debug.Log("Open Serial Port");
+        buffer = new byte[128];
+
+    }
+
+
+    // Método para enviar datos a Arduino desde otros scripts
+    public void SendDataToArduino(string data)
+    {
+        if (_serialPort != null)
+        {
+            if (_serialPort.IsOpen)
+            {
+                _serialPort.Write(data);
+                Debug.Log("SerialPort.Write ejecutado");
+            }
+            else
+            {
+                Debug.LogWarning("El puerto serial no está abierto.");
+            }
+        }
+        else
+        {
+            Debug.LogError("El objeto SerialPort no se ha inicializado correctamente.");
+        }
+    }
+
+
+
+   
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private SerialPort _serialPort;: Variable privada para gestionar la comunicación serial.
+
+private byte[] buffer;: Variable para almacenar datos temporales relacionados con la comunicación.
+
+void Start(): Método que configura la comunicación serial al inicio del juego.
+
+public void SendDataToArduino(string data): Método público para enviar datos al dispositivo conectado a través del puerto serial.
+
+void Update(): Método que se llama en cada cuadro del juego, pero en este caso, está vacío y no realiza ninguna acción específica en cada cuadro.
+
+* # Temperatura
+
+"""
+
+    public int temperature = 20;
+    
+
+    private void Start()
+    {
+
+
+    }
+    
+
+
+        public void MasTemp()
+        {
+
+            temperature += 5;
+
+            Debug.Log("Botón TempMas clicado");
+            Debug.Log("Valor de temperature: " + temperature);
+            int acertijos = temperature;
+        }
+
+        public void MenosTemp()
+        {
+            temperature -= 5;
+            if (temperature < 0)
+            {
+                temperature = 0;
+            }
+        }
+
+public int temperature = 20;: Se declara una variable pública llamada temperature e inicializada en 20. Esta variable probablemente representa la temperatura en el contexto del juego.
+
+private void Start(): Este método se ejecuta al inicio del juego, pero en este caso, está vacío y no realiza ninguna acción.
+
+public void MasTemp(): Este método público aumenta la temperatura en 5 unidades cuando se llama. También registra mensajes de depuración que indican que el botón "TempMas" fue presionado, muestra el valor actual de temperature, y crea una variable local acertijos que toma el valor de temperature.
+
+public void MenosTemp(): Este método público disminuye la temperatura en 5 unidades cuando se llama, con la condición de que no puede ser menor que 0. En otras palabras, no se permiten temperaturas negativas.
+
+En resumen, este código se encarga de controlar y ajustar la temperatura en el juego. El método MasTemp() incrementa la temperatura en 5 unidades y el método MenosTemp() la reduce en la misma cantidad, con un límite mínimo de 0.
+
+* # Raspberry PiPico
+
+"""
+
+    int currentTemp = 0; // Inicializar la temperatura en 0
+    constexpr uint8_t led = 25;
+
+    void setup() {
+    pinMode(led, OUTPUT); // Configurar el pin del LED como salida
+    digitalWrite(led, LOW);
+    Serial.begin(9600); // Iniciar comunicación serial a 9600 baudios
+  
+  
+    }
+
+    void loop() {
+    if (Serial.available() > 0) {
+    char receivedChar = Serial.read(); // Leer el valor del puerto serial y almacenarlo
+    
+    if (receivedChar == '1') {
+      digitalWrite(led, HIGH); // Encender el LED en el pin 13
+    } else if (receivedChar == '2') {
+      String dato = Serial.readString();
+      currentTemp = dato.toInt();
+    }else if(receivedChar == '0')
+    {
+      digitalWrite(led, LOW);
+    }
+    }
+
+    currentTemp = currentTemp - 1;
+    Serial.print(currentTemp);
+    delay(1000);
+    if (currentTemp <= 0) {
+    currentTemp = 0;
+    }
+  
+    }
+
+int currentTemp = 0;: Inicializa la variable currentTemp a 0 para almacenar un valor de temperatura.
+
+constexpr uint8_t led = 25;: Declara una constante llamada led que representa el número del pin GPIO al que está conectado un LED.
+
+void setup(): Este es el método de configuración que se ejecuta una vez al inicio del programa Arduino. En este caso:
+
+Se configura el pin del LED como una salida.
+Se inicia la comunicación serial a una velocidad de 9600 baudios.
+void loop(): Este método se ejecuta de manera continua en un bucle. En su interior:
+
+Se verifica si hay datos disponibles en el puerto serial.
+Si se recibe un '1' a través del puerto serial, se enciende el LED.
+Si se recibe un '2', se espera la lectura de una cadena que representa la temperatura actual (currentTemp) a través del puerto serial.
+Si se recibe un '0', se apaga el LED.
+Luego, se decrementa currentTemp en 1, se imprime su valor en el puerto serial y se espera un segundo.
+Si currentTemp llega a ser menor o igual a 0, se fuerza a que sea 0.
+En resumen, este código Arduino permite controlar un LED y recibir datos de temperatura a través de comunicación serial. Puede ser utilizado en conjunto con una Raspberry Pi Pico u otro dispositivo para ajustar la temperatura y controlar el LED en base a los comandos enviados a través del puerto serial.
+
