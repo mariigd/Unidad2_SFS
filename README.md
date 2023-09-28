@@ -296,7 +296,7 @@ En esta sección del código, en la función Update(), se actualiza la aparienci
 se cambia la imagen mostrada (TempIMG) según los valores específicos de temperatura. Lo mismo ocurre para la altura (AltIMG) y la presión (PresIMG),
 donde las imágenes se actualizan en función de los valores actuales. Esto permite a los usuarios ver de manera gráfica cómo cambian estos valores en tiempo real mientras utilizan la aplicación.
     
-* #Load Scene
+* # Load Scene
 
 """
 
