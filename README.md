@@ -353,7 +353,7 @@ llama a la función LoadGame(), lo que facilita la navegación entre distintas p
 
 * # SerialCommunicator
 
-"""
+``` C#
 
     private SerialPort _serialPort;
     private byte[] buffer;
@@ -404,6 +404,7 @@ llama a la función LoadGame(), lo que facilita la navegación entre distintas p
     {
         
     }
+    ```
 
     private SerialPort _serialPort;: Variable privada para gestionar la comunicación serial.
 
@@ -417,7 +418,7 @@ void Update(): Método que se llama en cada cuadro del juego, pero en este caso,
 
 * ### Temperatura
 
-"""
+``` C#
 
     public int temperature = 20;
     
@@ -448,6 +449,7 @@ void Update(): Método que se llama en cada cuadro del juego, pero en este caso,
                 temperature = 0;
             }
         }
+        ```
 
 public int temperature = 20;: Se declara una variable pública llamada temperature e inicializada en 20. Esta variable probablemente representa la temperatura en el contexto del juego.
 
@@ -461,7 +463,7 @@ En resumen, este código se encarga de controlar y ajustar la temperatura en el 
 
 * ### Raspberry PiPico
 
-"""
+``` C++
 
     int currentTemp = 0; // Inicializar la temperatura en 0
     constexpr uint8_t led = 25;
@@ -497,6 +499,7 @@ En resumen, este código se encarga de controlar y ajustar la temperatura en el 
     }
   
     }
+    ```
 
 int currentTemp = 0;: Inicializa la variable currentTemp a 0 para almacenar un valor de temperatura.
 
