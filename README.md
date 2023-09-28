@@ -30,7 +30,7 @@ En este espacio encontrarás:
 
 * ### Config
 
-``` C#
+```C#
 
     Botones
     public Button TempMas;
@@ -110,7 +110,7 @@ Acertijos, altura, y presion son otras variables que guardan información relaci
 Finalmente, mencionamos que tenemos imágenes para mostrar cómo está la temperatura. Por ejemplo, si la temperatura es de 10 grados, mostraremos 
 una imagen de "Congelado". Si es de 20 grados, mostraremos una imagen de "Normal". Estas imágenes se muestran en la pantalla para que el jugador pueda ver la temperatura de manera visual.
 
-"""
+```C#
 
     _serialPort = new SerialPort();
     _serialPort.PortName = "COM5";
@@ -122,12 +122,13 @@ una imagen de "Congelado". Si es de 20 grados, mostraremos una imagen de "Normal
     buffer = new byte[128];
     Led();
     Contador();
+```
 
 En esta parte del código, configuramos una comunicación serial con un dispositivo externo, 
 específicamente en el puerto COM5, establecemos una velocidad de comunicación de 9600 bits por segundo, habilitamos una señal de control, 
 abrimos la comunicación, asignamos un espacio para almacenar datos entrantes y luego llamamos a funciones que envían comandos al dispositivo externo.
 
-"""
+``` C#
 
     private void Led()
 
@@ -139,6 +140,7 @@ abrimos la comunicación, asignamos un espacio para almacenar datos entrantes y 
 
     _serialPort.Write("2"); // Envía '2' al dispositivo externo.
     Debug.Log("Enviar temp"); // Registra un mensaje de depuración para indicar que se ha enviado un comando al dispositivo.
+```
 
 
 * Led(): Enviamos el número "1" al dispositivo externo, posiblemente para darle una instrucción específica, como encender un LED.
@@ -149,12 +151,14 @@ También, registramos un mensaje de depuración para confirmar que hemos enviado
 
 Estas funciones se utilizan para comunicarnos con el dispositivo externo y darle instrucciones específicas a través del puerto serial.
 
-"""
+``` C#
 
     private void OnApplicationQuit()
     {
     _serialPort.Write("0"); // Envía '0' al dispositivo externo (posiblemente un Arduino).
     }
+```
+
 
 En esta parte del código, la función OnApplicationQuit() se encarga de realizar una acción 
 importante justo antes de que cierres la aplicación por completo.
@@ -164,7 +168,7 @@ Lo que hace es enviar el número "0" al dispositivo externo, que podría ser un 
 Esta acción es útil porque permite al dispositivo externo llevar a cabo alguna tarea específica antes de desconectarse. 
 Por ejemplo, podría ser útil apagar el dispositivo de manera segura o realizar una acción final importante.
 
-"""
+``` C#
 
     public void MenosTemp()
     {
@@ -237,6 +241,7 @@ Por ejemplo, podría ser útil apagar el dispositivo de manera segura o realizar
         Debug.Log("Botón MenosPresion clicado");
         Debug.Log("Valor de presion: " + presion);
     }
+```
 
 Estas funciones manejan las interacciones del usuario con botones en la interfaz de usuario relacionados con la temperatura, altura y presión. 
 Cada función cambia el estado de ciertas variables y registra mensajes de depuración para mostrar acciones del usuario y actualizar información en la interfaz de usuario:
@@ -248,7 +253,7 @@ Cada función cambia el estado de ciertas variables y registra mensajes de depur
 * MenosPresion(): Disminuye la presión si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
 * Estas funciones permiten al usuario interactuar con la aplicación y modificar los valores de temperatura, altura y presión, mientras se registran mensajes de depuración para rastrear estas acciones.
 
-"""
+```C#
 
         void Update()
         {
@@ -302,6 +307,7 @@ Cada función cambia el estado de ciertas variables y registra mensajes de depur
         {
             PresIMG.sprite = PresB;
         }
+```
 
 En esta sección del código, en la función Update(), se actualiza la apariencia de elementos visuales en la interfaz de usuario en función de los valores de temperatura, altura y presión. Para la temperatura, 
 se cambia la imagen mostrada (TempIMG) según los valores específicos de temperatura. Lo mismo ocurre para la altura (AltIMG) y la presión (PresIMG),
@@ -309,7 +315,7 @@ donde las imágenes se actualizan en función de los valores actuales. Esto perm
     
 * ### Load Scene
 
-"""
+```C#
 
     public class LoadScene : MonoBehaviour
     {
@@ -331,6 +337,7 @@ donde las imágenes se actualizan en función de los valores actuales. Esto perm
         
         SceneManager.LoadScene("Juego");
     }
+```
 
 Este código corresponde a un script en Unity llamado LoadScene. Su principal función es permitir la transición hacia una escena diferente en el juego. 
 Cuando se invoca la función LoadGame(), se carga la escena denominada "Juego". Esto es útil para cambiar entre diferentes partes del juego, como menús y niveles.
