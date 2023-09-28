@@ -19,7 +19,7 @@ La interfaz contará con los siguientes elementos de interacción:
 
   ## Manual Desarrollador
 
-* Config
+* # Config
 
 """
 
