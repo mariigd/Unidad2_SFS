@@ -296,4 +296,39 @@ En esta sección del código, en la función Update(), se actualiza la aparienci
 se cambia la imagen mostrada (TempIMG) según los valores específicos de temperatura. Lo mismo ocurre para la altura (AltIMG) y la presión (PresIMG),
 donde las imágenes se actualizan en función de los valores actuales. Esto permite a los usuarios ver de manera gráfica cómo cambian estos valores en tiempo real mientras utilizan la aplicación.
     
-    
+* #Load Scene
+
+"""
+
+    public class LoadScene : MonoBehaviour
+    {
+    private SerialCommunicator serialCommunicator;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void LoadGame()
+    {
+        
+        SceneManager.LoadScene("Juego");
+    }
+
+Este código corresponde a un script en Unity llamado LoadScene. Su principal función es permitir la transición hacia una escena diferente en el juego. 
+Cuando se invoca la función LoadGame(), se carga la escena denominada "Juego". Esto es útil para cambiar entre diferentes partes del juego, como menús y niveles.
+
+Dentro del código, existe una variable llamada serialCommunicator, que parece estar relacionada 
+con la comunicación serial en el proyecto, aunque no se utiliza en este fragmento de código en particular.
+
+Además, el script contiene dos métodos estándar de Unity: Start() y Update(). 
+En este caso, ambos métodos están vacíos, lo que significa que no realizan ninguna acción específica al iniciar o durante la actualización del juego.
+
+En resumen, este script LoadScene proporciona la funcionalidad necesaria para cargar la escena de juego cuando se 
+llama a la función LoadGame(), lo que facilita la navegación entre distintas partes del juego en un proyecto de Unity.
