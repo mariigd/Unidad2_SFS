@@ -153,8 +153,147 @@ Lo que hace es enviar el número "0" al dispositivo externo, que podría ser un 
 Esta acción es útil porque permite al dispositivo externo llevar a cabo alguna tarea específica antes de desconectarse. 
 Por ejemplo, podría ser útil apagar el dispositivo de manera segura o realizar una acción final importante.
 
+"""
 
+    public void MenosTemp()
+    {
+        PresionadoTempMenos = !PresionadoTempMenos;
+        if (PresionadoTempMenos == true)
+        {
+            temperature--;
+            if (temperature < 10)
+            {
+                temperature = 10;
+            }
+        }
+        Debug.Log("Botón TempMenos clicado");
+        Debug.Log("Valor de temperature: " + temperature);
+        NumAcertijos.text = temperature.ToString();
+    }
 
+    public void MasAlt()
+    {
+        PresionadoALTmas = !PresionadoALTmas;
+        if (PresionadoALTmas  == true)
+        {
+            altura++;
+        }
 
+        Debug.Log("Botón MasALT clicado");
+        Debug.Log("Valor de altura: " + altura);
+    }
+
+    public void MenosAlt()
+    {
+        PresionadoALTmenos = !PresionadoALTmenos;
+        if (PresionadoALTmenos == true)
+        {
+            altura--;
+            if (altura < 0)
+            {
+                altura = 0;
+            }
+        }
+        Debug.Log("Botón MenosALT clicado");
+        Debug.Log("Valor de altura: " + altura);
+    }
+
+    public void MasPresion()
+    {
+        PresionadoPresMas = !PresionadoPresMas;
+        if (PresionadoPresMas == true)
+        {
+            presion++;
+        }
+
+        Debug.Log("Botón MasPresion clicado");
+        Debug.Log("Valor de presion: " + presion);
+
+    }
+
+    public void MenosPresion()
+    {
+        
+        PresionadoPresMenos = !PresionadoPresMenos;
+        if (PresionadoPresMenos == true)
+        {
+            presion--;
+            if (presion < 0)
+            {
+                presion = 0;
+            }
+        }
+        Debug.Log("Botón MenosPresion clicado");
+        Debug.Log("Valor de presion: " + presion);
+    }
+
+Estas funciones manejan las interacciones del usuario con botones en la interfaz de usuario relacionados con la temperatura, altura y presión. 
+Cada función cambia el estado de ciertas variables y registra mensajes de depuración para mostrar acciones del usuario y actualizar información en la interfaz de usuario:
+
+* MenosTemp(): Disminuye la temperatura si el botón correspondiente se mantiene presionado, con un límite mínimo de 10 grados.
+* MasAlt(): Aumenta la altura si el botón correspondiente se mantiene presionado.
+* MenosAlt(): Disminuye la altura si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
+* MasPresion(): Aumenta la presión si el botón correspondiente se mantiene presionado.
+* MenosPresion(): Disminuye la presión si el botón correspondiente se mantiene presionado, con un límite mínimo de 0.
+* Estas funciones permiten al usuario interactuar con la aplicación y modificar los valores de temperatura, altura y presión, mientras se registran mensajes de depuración para rastrear estas acciones.
+
+"""
+
+        void Update()
+        {
+        //Temperatura
+        if (temperature == 10)
+        {
+            TempIMG.sprite = Congelado;
+        }
+        if (temperature == 15)
+        {
+            TempIMG.sprite = Frio;
+        }
+        else if(temperature == 20)
+        {
+            TempIMG.sprite = Normal;
+        }
+
+        if (temperature == 25)
+        {
+            TempIMG.sprite = Caliente;
+        }
+        if (temperature == 30)
+        {
+            TempIMG.sprite = Asado;
+        }
+
+        //Altura
+        if (altura == 5)
+        {
+            AltIMG.sprite = Media;
+        }
+        if (altura == 10)
+        {
+            AltIMG.sprite = Alta;
+        }
+        if (altura == 0)
+        {
+            AltIMG.sprite = Baja;
+        }
+
+        //Presion
+        if (presion == 5)
+        {
+            PresIMG.sprite = PresM;
+        }
+        if (presion == 10)
+        {
+            PresIMG.sprite = PresA;
+        }
+        if (presion == 0)
+        {
+            PresIMG.sprite = PresB;
+        }
+
+En esta sección del código, en la función Update(), se actualiza la apariencia de elementos visuales en la interfaz de usuario en función de los valores de temperatura, altura y presión. Para la temperatura, 
+se cambia la imagen mostrada (TempIMG) según los valores específicos de temperatura. Lo mismo ocurre para la altura (AltIMG) y la presión (PresIMG),
+donde las imágenes se actualizan en función de los valores actuales. Esto permite a los usuarios ver de manera gráfica cómo cambian estos valores en tiempo real mientras utilizan la aplicación.
     
     
