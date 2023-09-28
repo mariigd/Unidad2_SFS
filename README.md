@@ -21,7 +21,9 @@ La interfaz contará con los siguientes elementos de interacción:
 
 * Config
 
-´´´ Botones
+"""
+
+    Botones
     public Button TempMas;
     public Button TempMenos;
 
@@ -71,5 +73,5 @@ La interfaz contará con los siguientes elementos de interacción:
     public Sprite PresM;
     public Sprite PresA;
 
-    public TextMeshProUGUI NumAcertijos;´´´
-  
+    public TextMeshProUGUI NumAcertijos;"""
+    
