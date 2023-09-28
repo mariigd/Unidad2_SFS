@@ -99,6 +99,40 @@ Acertijos, altura, y presion son otras variables que guardan información relaci
 Finalmente, mencionamos que tenemos imágenes para mostrar cómo está la temperatura. Por ejemplo, si la temperatura es de 10 grados, mostraremos 
 una imagen de "Congelado". Si es de 20 grados, mostraremos una imagen de "Normal". Estas imágenes se muestran en la pantalla para que el jugador pueda ver la temperatura de manera visual.
 
+"""
+
+    _serialPort = new SerialPort();
+    _serialPort.PortName = "COM5";
+    _serialPort.BaudRate = 9600;
+    _serialPort.DtrEnable = true;
+    _serialPort.NewLine = "\n";
+    _serialPort.Open();
+    Debug.Log("Open Serial Port");
+    buffer = new byte[128];
+    Led();
+    Contador();
+
+En esta parte del código, configuramos una comunicación serial con un dispositivo externo, 
+específicamente en el puerto COM5, establecemos una velocidad de comunicación de 9600 bits por segundo, habilitamos una señal de control, 
+abrimos la comunicación, asignamos un espacio para almacenar datos entrantes y luego llamamos a funciones que envían comandos al dispositivo externo.
+
+"""
+
+private void Led()
+
+    _serialPort.Write("1"); // Envía '1' al dispositivo externo (posiblemente un Arduino).
+    Debug.Log("Enviar arduino"); // Registra un mensaje de depuración para indicar que se ha enviado un comando al dispositivo.    
+
+
+private void Contador()
+
+    _serialPort.Write("2"); // Envía '2' al dispositivo externo.
+    Debug.Log("Enviar temp"); // Registra un mensaje de depuración para indicar que se ha enviado un comando al dispositivo.
+
+
+
+
+
 
 
     
