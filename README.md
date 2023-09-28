@@ -73,5 +73,33 @@ La interfaz contará con los siguientes elementos de interacción:
     public Sprite PresM;
     public Sprite PresA;
 
-    public TextMeshProUGUI NumAcertijos;"""
+    public TextMeshProUGUI NumAcertijos;
+
+Esta parte del código se encarga de declarar y definir las variables y elementos que se utilizarán 
+para interactuar con la interfaz de usuario y para controlar el comportamiento del programa.
+
+* Botones:
+
+Primero, estamos diciendo qué botones tenemos en nuestra interfaz. Por ejemplo, mencionamos que tenemos botones para subir y 
+bajar la temperatura (TempMas y TempMenos), para subir y bajar la altura (ALTmas y ALTmenos), para subir 
+y bajar la presión (PresMas y PresMenos), y un botón para empezar (Comenzar).
+
+* Botones Presionados:
+
+Luego, estamos guardando si estos botones están siendo presionados o no. Si, por ejemplo, aprietas el botón 
+TempMas, la variable PresionadoTempMas pasa a ser true, indicando que el botón se encuentra presionado. Lo mismo para los demás botones.
+
+* Variables de Datos:
+
+Aquí estamos guardando información importante. La variable temperature guarda la temperatura actual del juego o la aplicación. 
+Acertijos, altura, y presion son otras variables que guardan información relacionada con el juego.
+
+* Visualización de Temperatura:
+
+Finalmente, mencionamos que tenemos imágenes para mostrar cómo está la temperatura. Por ejemplo, si la temperatura es de 10 grados, mostraremos 
+una imagen de "Congelado". Si es de 20 grados, mostraremos una imagen de "Normal". Estas imágenes se muestran en la pantalla para que el jugador pueda ver la temperatura de manera visual.
+
+
+
+    
     
