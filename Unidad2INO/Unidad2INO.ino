@@ -1,10 +1,12 @@
-int currentTemp = 20; // Inicializar la temperatura en 20
+int currentTemp; // Inicializar la temperatura
 constexpr uint8_t led = 25;
+int currentVel = 4;
 
 void setup() {
   pinMode(led, OUTPUT); // Configurar el pin del LED como salida
   digitalWrite(led, LOW);
   Serial.begin(9600); // Iniciar comunicación serial a 9600 baudios
+  currentTemp = 20; // Establecer la temperatura inicial en 20
 }
 
 void loop() {
@@ -19,12 +21,8 @@ void loop() {
       while (currentTemp > 0) {
         currentTemp = currentTemp - 1;
         Serial.println(currentTemp);
-        delay(1000);
+        delay(currentVel * 1000);
       }
-      
     }
   }
-  // Envía el valor actualizado de currentTemp continuamente
-  Serial.println(currentTemp);
-  delay(1000); // Puedes ajustar este valor según tus necesidades
 }

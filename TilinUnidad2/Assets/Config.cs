@@ -187,7 +187,14 @@ public class Config : MonoBehaviour
         Debug.Log("Valor de presion: " + presion);
     }
 
-
+    // Asegurarse de cerrar el puerto serie cuando se detenga la aplicación o el objeto se destruya
+    void OnDestroy()
+    {
+        if (_serialPort != null && _serialPort.IsOpen)
+        {
+            _serialPort.Close();
+        }
+    }
 
 
     // Update is called once per frame

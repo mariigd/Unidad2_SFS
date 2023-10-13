@@ -27,6 +27,7 @@ public class IniciaJuego : MonoBehaviour
     private void Start()
     {
 
+
         _serialPort = new SerialPort();
         _serialPort.PortName = "COM5";
         _serialPort.BaudRate = 9600;
@@ -78,6 +79,14 @@ public class IniciaJuego : MonoBehaviour
         }
     }
 
+    // Asegurarse de cerrar el puerto serie cuando se detenga la aplicación o el objeto se destruya
+    void OnDestroy()
+    {
+        if (_serialPort != null && _serialPort.IsOpen)
+        {
+            _serialPort.Close();
+        }
+    }
 
 
     private void Update()
